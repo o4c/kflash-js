@@ -31,7 +31,7 @@
 
     connect.onclick = async () => {
       await kflash.requestSerialPort();
-      await kflash.write(0x020000, firmware, printProgressBarListener);
+      await kflash.write(0x000000, firmware, printProgressBarListener);
     };
   </script>
 </html>

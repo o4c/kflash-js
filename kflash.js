@@ -422,7 +422,11 @@ class KFlash {
             // console.log(packet);
             // console.log(packet.map((e) => e.toString(16)));
             console.log("write", `0x${address.toString(16)}`, packet.length);
+            
+            
             await this.write(packet);
+            _port.writer.releaseLock()
+            _port.openWriter()
             if (await this.recv_debug()) {
               address += DATAFRAME_SIZE;
               break;
